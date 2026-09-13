@@ -1,0 +1,10 @@
+export * from "@/types/chat";
+export * from "@/hooks/use-chat";
+export * from "@/services/mock-ai-service";
+export { ChatArea } from "@/components/chat/chat-area";
+export { ChatHeader } from "@/components/chat/chat-header";
+export { MessageBubble } from "@/components/chat/message-bubble";
+export { MessageList } from "@/components/chat/message-list";
+export { ChatInput } from "@/components/chat/chat-input";
+export { WelcomeScreen } from "@/components/chat/welcome-screen";
+export { ModelSelector } from "@/components/chat/model-selector";
