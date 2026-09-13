@@ -15,6 +15,18 @@ export function Sidebar() {
   const toggleSidebar = useChatStore((state) => state.toggleSidebar);
   const setSidebarOpen = useChatStore((state) => state.setSidebarOpen);
 
+  // Global Cmd+K / Ctrl+K keyboard shortcut for new chat
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        useChatStore.getState().createConversation();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   // Close sidebar automatically on narrow screens initially
   useEffect(() => {
     const handleResize = () => {
